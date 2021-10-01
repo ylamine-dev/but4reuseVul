@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="de.ovgu.featureide.core.composers">
+      <composer
+            class="de.ovgu.featureide.core.softwarearchitectures.SoftwareArchitecturesComposer"
+            description="Software Architecture Composition"
+            id="de.ovgu.featureide.core.softwarearchitectures.composer"
+            name="Software Architecture Composer"
+            nature="de.ovgu.featureide.core.softwarearchitectures.composer">
+      </composer>
+   </extension>
+
+</plugin>

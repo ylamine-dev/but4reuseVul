@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: FeatureIDE Plug-In for Software Architecture Composition
+Bundle-SymbolicName: de.ovgu.featureide.core.softwarearchitectures;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime, 
+ org.eclipse.core.resources,
+ de.ovgu.featureide.core,
+ de.ovgu.featureide.fm.core,
+ org.but4reuse.archmodel.synthesis,
+ org.but4reuse.adapters,
+ org.eclipse.emf.ecore.xmi
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: de.ovgu.featureide.core.softwarearchitectures.activator.SoftArchitecturesCorePlugin
+Bundle-Vendor: Mohamed Lamine Kerdoudi
