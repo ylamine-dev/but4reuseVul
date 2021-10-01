@@ -49,7 +49,7 @@ public class OSGiBlockArchsSavingVisualisation implements IVisualisation {
 	Map<Block, Double>  falsePositiveValues ; 
 	Map<Block, Double>  falseNegativeValues ; 
 	Map<Block, Double> falseNegativesWithoutSources;
-	private boolean headless = false;
+	
 	File outputFile;
 	@Override
 	public void prepare(FeatureList featureList, AdaptedModel adaptedModel, Object extra, IProgressMonitor monitor) {
@@ -68,9 +68,9 @@ public class OSGiBlockArchsSavingVisualisation implements IVisualisation {
 		// Here we try to find the folder to save it
 				IContainer output = AdaptedModelManager.getDefaultOutput();
 				
-				if(!isHeadless()){
+				
 					outputFile = WorkbenchUtils.getFileFromIResource(output);
-				}
+				
 				
 				
 				String name = AdaptedModelHelper.getName(adaptedModel);
@@ -138,9 +138,9 @@ public class OSGiBlockArchsSavingVisualisation implements IVisualisation {
 		
         addtoTextFile();
 		// Refresh
-        if(!isHeadless()){
+        
         	WorkbenchUtils.refreshIResource(AdaptedModelManager.getDefaultOutput());
-        }
+        
 	}
 	}
 	public void saveInFile(String text,File file){
@@ -464,17 +464,5 @@ public class OSGiBlockArchsSavingVisualisation implements IVisualisation {
 		return distributions;
 	}
 	
-	public boolean isHeadless() {
-		return headless;
-	}
-	/***
-	 * This method is invoked only if the but4reuse is run in headless
-	 * Set the outputfolder 
-	 * @param headless
-	 * @param outputFolder
-	 */
-	public void setHeadless(File outputFolder ) {
-		this.headless = true;
-		this.outputFile =outputFolder;
-	}
+	
 }
