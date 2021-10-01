@@ -1,5 +1,6 @@
 package org.but4reuse.wordclouds.visualisation;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class WordCloudVisualisation implements IVisualisation {
 	 */
 	private static List<Cloud> clouds;
 	private static List<Cloud> clouds_tfidf;
+	
 
 	public WordCloudVisualisation() {
 	}
@@ -83,6 +85,7 @@ public class WordCloudVisualisation implements IVisualisation {
 
 	@Override
 	public void show() {
+		
 		Display.getDefault().asyncExec(new Runnable() {
 			@Override
 			public void run() {
@@ -90,6 +93,9 @@ public class WordCloudVisualisation implements IVisualisation {
 				WordCloudView.update(0, false);
 			}
 		});
+		
 	}
+	
+	
 
 }

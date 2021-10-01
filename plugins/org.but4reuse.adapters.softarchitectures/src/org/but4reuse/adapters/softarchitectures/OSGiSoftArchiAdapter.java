@@ -58,7 +58,7 @@ public class OSGiSoftArchiAdapter implements IAdapter {
 	public static boolean parseServices = false;
 	public static boolean parseExtensions = true;
 	public static boolean parsePackages = false;
-	private boolean headless = false;
+	
 
 	/**
 	 * key is : pluginSymbName_Version value: is a hashMap : key is the package
@@ -135,7 +135,7 @@ public class OSGiSoftArchiAdapter implements IAdapter {
 		 * getName(), new NullProgressMonitor()); }
 		 */
 		// Create SA
-		if (!isHeadless()) {
+		
 			List<ISoftwareArchitectureVariantRecovery> softwareArchitectureVariantCreators = ArchtectureVariantRecoverHelper
 					.getSelectedSoftwareArchitectureVariantCreators();
 			for (ISoftwareArchitectureVariantRecovery savc : softwareArchitectureVariantCreators) {
@@ -144,7 +144,7 @@ public class OSGiSoftArchiAdapter implements IAdapter {
 			//	savc.recoverSoftwareArchitectureVariant(elements, file.getName(), new NullProgressMonitor());
 
 			}
-		}
+		
 		// Get construction uri from user
 		String out = "/projectName";
 		IContainer output = AdaptedModelManager.getDefaultOutput();
@@ -708,8 +708,6 @@ public class OSGiSoftArchiAdapter implements IAdapter {
 	}
 	
 
-	public boolean isHeadless() {
-		return headless;
-	}
+	
 
 }

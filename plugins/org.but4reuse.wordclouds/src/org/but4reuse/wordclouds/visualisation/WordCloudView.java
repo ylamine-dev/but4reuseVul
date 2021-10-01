@@ -4,7 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 
 import org.but4reuse.adaptedmodel.Block;
+import org.but4reuse.adaptedmodel.helpers.AdaptedModelHelper;
 import org.but4reuse.adaptedmodel.manager.AdaptedModelManager;
+import org.but4reuse.adapters.IElement;
+import org.but4reuse.utils.workbench.WorkbenchUtils;
 import org.but4reuse.visualisation.helpers.VisualisationsHelper;
 import org.but4reuse.wordclouds.activator.Activator;
 import org.but4reuse.wordclouds.preferences.WordCloudPreferences;
@@ -205,18 +208,26 @@ public class WordCloudView extends ViewPart {
 
 		Cloud c = null;
 		lastIndex = index;
+		int ind = WordCloudView.getSingleton().getTabFolder().getSelectionIndex();
 		if (WordCloudView.getSingleton().getTabFolder().getSelectionIndex() == 1)
 			c = WordCloudVisualisation.getCloudsTFIDF().get(index);
-		else
+		else{
+			if(WordCloudVisualisation.getClouds().size()>0){
 			c = WordCloudVisualisation.getClouds().get(index);
-
+			}
+			
+		}
+		if(c!=null){
 		for (Tag t : c.tags())
 			singleton.getList().add(t.getName() + " - " + String.format("%.2f", t.getNormScore()));
 
 		WordCloudUtil.drawWordCloud(singleton.getSComposite(), c);
 		WordCloudUtil.drawWordCloud(singleton.getSCompositeTFIDF(), c);
+		
+		}
 		addWordCloudListeners(singleton.getSComposite(), index);
 		addWordCloudListeners(singleton.getSCompositeTFIDF(), index);
+		
 	}
 
 	@Override
@@ -410,6 +421,9 @@ public class WordCloudView extends ViewPart {
 					// Update the names of the blocks
 					int i = 0;
 					boolean somethingChanged = false;
+					
+		
+					
 					for (Block b : AdaptedModelManager.getAdaptedModel().getOwnedBlocks()) {
 						String newName = names.get(i);
 						boolean keepPreviousName = Activator.getDefault().getPreferenceStore()
@@ -420,6 +434,13 @@ public class WordCloudView extends ViewPart {
 						if (b.getName() != newName) {
 							b.setName(newName);
 							somethingChanged = true;
+							
+				          // save the new blok architecture		
+						java.util.List<IElement> elements = AdaptedModelHelper.getElementsOfBlock(b);
+						
+						
+        					
+							 
 						}
 						i++;
 					}
