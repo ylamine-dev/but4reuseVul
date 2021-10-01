@@ -1,5 +1,9 @@
 package org.but4reuse.feature.constraints.impl;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -122,6 +126,7 @@ public class BinaryRelationConstraintsDiscovery implements IConstraintsDiscovery
 		return constraintList;
 	}
 
+	
 	/**
 	 * exists e in b1 : exists de in e.dependencies : de containedIn b2
 	 * 
@@ -131,6 +136,14 @@ public class BinaryRelationConstraintsDiscovery implements IConstraintsDiscovery
 	 */
 	public static List<String> blockRequiresAnotherBlockB(Block b1, Block b2) {
 		List<String> messages = new ArrayList<String>();
+
+		AdaptedModel adaptedModel = AdaptedModelManager.getAdaptedModel();
+		// Common blocks (probably mandatory)
+		List<Block> common = AdaptedModelHelper.getCommonBlocks(adaptedModel);
+		if (!common.contains(b1)){
+
+	
+		
 		// Get the elements of B1
 		HashSet<IElement> elementsOfB1 = AdaptedModelHelper.getElementsOfBlockHashSet(b1);
 		for (BlockElement e : b1.getOwnedBlockElements()) {
@@ -143,7 +156,10 @@ public class BinaryRelationConstraintsDiscovery implements IConstraintsDiscovery
 				if (!deoAlreadyInB1) {
 					for (BlockElement b2e : b2.getOwnedBlockElements()) {
 						for (ElementWrapper elementW2 : b2e.getElementWrappers()) {
-							if (deo.equals(elementW2.getElement())) {
+							IElement elementW2IElem  = (IElement) elementW2.getElement();
+							IElement deoIElem  = (IElement) deo;
+							if (deoIElem.toString().equals(elementW2IElem.toString())) {
+							
 								String message = ((IElement) e.getElementWrappers().get(0).getElement()).getText()
 										+ "->" + ((IElement) elementW2.getElement()).getText();
 								messages.add(message);
@@ -161,6 +177,7 @@ public class BinaryRelationConstraintsDiscovery implements IConstraintsDiscovery
 				}
 			}
 		}
+		}
 		return messages;
 	}
 
@@ -174,6 +191,12 @@ public class BinaryRelationConstraintsDiscovery implements IConstraintsDiscovery
 	 */
 	public static List<String> blockExcludesAnotherBlock(Block b1, Block b2) {
 		List<String> messages = new ArrayList<String>();
+
+		AdaptedModel adaptedModel = AdaptedModelManager.getAdaptedModel();
+		// Common blocks (probably mandatory)
+		List<Block> common = AdaptedModelHelper.getCommonBlocks(adaptedModel);
+		if (!common.contains(b1)){
+
 		// Create the global maps of dependency ids and dependency objects
 		Map<String, List<IDependencyObject>> map1 = new HashMap<String, List<IDependencyObject>>();
 		Map<String, List<IDependencyObject>> map2 = new HashMap<String, List<IDependencyObject>>();
@@ -200,6 +223,8 @@ public class BinaryRelationConstraintsDiscovery implements IConstraintsDiscovery
 					}
 				}
 			}
+		}
+		
 		}
 		return messages;
 	}

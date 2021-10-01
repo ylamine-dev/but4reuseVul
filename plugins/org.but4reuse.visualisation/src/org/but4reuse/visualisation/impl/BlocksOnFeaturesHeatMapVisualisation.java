@@ -37,7 +37,8 @@ public class BlocksOnFeaturesHeatMapVisualisation implements IVisualisation {
 	FeatureList featureList;
 	AdaptedModel adaptedModel;
 	Image location;
-
+	
+	File artefactModelFile;
 	@Override
 	public void prepare(FeatureList featureList, AdaptedModel adaptedModel, Object extra, IProgressMonitor monitor) {
 		this.featureList = featureList;
@@ -73,6 +74,7 @@ public class BlocksOnFeaturesHeatMapVisualisation implements IVisualisation {
 
 	@Override
 	public void show() {
+      
 		// no featurelist then no visualisation
 		if (featureList != null) {
 			// asyncExec to avoid SWT invalid thread access
@@ -115,6 +117,7 @@ public class BlocksOnFeaturesHeatMapVisualisation implements IVisualisation {
 									item.setBackground(ce, getGradientColor(value));
 									if (locatedMatrix[r][ce] != null) {
 										item.setImage(ce, location);
+										
 									}
 								}
 							}
@@ -129,9 +132,11 @@ public class BlocksOnFeaturesHeatMapVisualisation implements IVisualisation {
 					shell.pack();
 					shell.setText("Blocks on Features heatmap. CSV file at featureLocation folder");
 					shell.open();
+					
+			//		saveInFile(table, shell, location);
 				}
 			});
-
+			
 			// CSV version of the matrix
 			// TODO improve checks!
 			// Here we try to find the folder to save it
@@ -144,6 +149,7 @@ public class BlocksOnFeaturesHeatMapVisualisation implements IVisualisation {
 			IResource res = WorkbenchUtils.getIResourceFromURI(uri2);
 			File artefactModelFile = WorkbenchUtils.getFileFromIResource(res);
 
+
 			// create folder
 			File graphsFolder = new File(artefactModelFile.getParentFile(), "featureLocation");
 			graphsFolder.mkdir();
@@ -151,10 +157,13 @@ public class BlocksOnFeaturesHeatMapVisualisation implements IVisualisation {
 			File file = new File(graphsFolder, artefactModelFile.getName() + "_featuresAndBlocks.csv");
 			CSVUtils.exportCSV(file.toURI(), matrix);
 
-			WorkbenchUtils.refreshIResource(res.getParent());
+			
+	        	WorkbenchUtils.refreshIResource(res.getParent());
+	        
 		}
 	}
 
+	
 	private Color getGradientColor(double percent) {
 		// Color color1 = Display.getCurrent().getSystemColor(SWT.COLOR_RED);
 		// Color color2 = Display.getCurrent().getSystemColor(SWT.COLOR_YELLOW);
@@ -181,4 +190,7 @@ public class BlocksOnFeaturesHeatMapVisualisation implements IVisualisation {
 		}
 	}
 
+	
+
+	
 }

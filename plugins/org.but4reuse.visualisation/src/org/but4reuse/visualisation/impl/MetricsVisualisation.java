@@ -1,5 +1,9 @@
 package org.but4reuse.visualisation.impl;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,6 +21,7 @@ import org.but4reuse.featurelist.Feature;
 import org.but4reuse.featurelist.FeatureList;
 import org.but4reuse.utils.workbench.WorkbenchUtils;
 import org.but4reuse.visualisation.IVisualisation;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.swt.widgets.Display;
 
@@ -28,12 +33,42 @@ import org.eclipse.swt.widgets.Display;
 public class MetricsVisualisation implements IVisualisation {
 	FeatureList featureList;
 	AdaptedModel adaptedModel;
+	File metricsFile;
+	
 
+	File outputFile;
+	
 	@Override
 	public void prepare(FeatureList featureList, AdaptedModel adaptedModel, Object extra, IProgressMonitor monitor) {
 		this.featureList = featureList;
 		this.adaptedModel = adaptedModel;
 		monitor.subTask("Metrics Visualisation");
+		
+		// Here we try to find the folder to save it
+				IContainer output = AdaptedModelManager.getDefaultOutput();
+				
+					outputFile = WorkbenchUtils.getFileFromIResource(output);
+				
+				String name = AdaptedModelHelper.getName(adaptedModel);
+				if (name == null) {
+					name = "default";
+				}
+
+				// create folder
+				File graphsFolder = new File(outputFile, "metrics");
+				graphsFolder.mkdir();
+
+				// Save
+				metricsFile = new File(graphsFolder, name + getNameAppendix());
+				
+
+			
+	}
+
+	
+	
+	public String getNameAppendix() {
+		return "_metrics.txt";
 	}
 
 	@Override
@@ -177,10 +212,17 @@ public class MetricsVisualisation implements IVisualisation {
 					name = "";
 				}
 
+		       
+
 				MetricsVisualisationView view = (MetricsVisualisationView) WorkbenchUtils
 						.forceShowView(MetricsVisualisationView.ID);
-
 				view.scrollable.setText(text.toString());
+		        
+				saveInFile(text.toString(),metricsFile);
+				// Refresh
+		        
+		        	WorkbenchUtils.refreshIResource(AdaptedModelManager.getDefaultOutput());
+		        
 			}
 
 			private void appendUsedAdapters(StringBuilder text) {
@@ -216,6 +258,20 @@ public class MetricsVisualisation implements IVisualisation {
 		});
 	}
 
+	public void saveInFile(String text,File file){
+		PrintStream io = null;
+		 if(io ==null){ 
+			try {
+				io = new PrintStream(new FileOutputStream(file.getAbsolutePath()));
+			} catch (FileNotFoundException e) {
+				
+				e.printStackTrace();
+			}
+		 }
+			io.print(text);
+		}  
+		
+	
 	public static double mean(List<Double> list) {
 		double sum = 0;
 		for (int i = 0; i < list.size(); i++) {
@@ -255,5 +311,6 @@ public class MetricsVisualisation implements IVisualisation {
 			stringBuilder.append("\nStdDev= " + standardDeviation(data, mean));
 		}
 	}
-
+	
+	
 }
