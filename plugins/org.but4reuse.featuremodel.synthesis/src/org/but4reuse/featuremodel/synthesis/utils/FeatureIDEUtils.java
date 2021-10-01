@@ -173,14 +173,24 @@ public class FeatureIDEUtils {
 	// For example 3 requires 2 (3 is child of 2). Then 2 requires 1. isAncestor
 	// 1 of 3 is true.
 	public static boolean isAncestorFeature1ofFeature2(FeatureModel fm, List<IConstraint> constraints, IFeature f1,
-			IFeature f2) {
+			IFeature f2, List<IFeature> featureTrace) {
 		List<IFeature> directRequired = getFeatureRequiredFeatures(fm, constraints, f2);
 		if (directRequired.contains(f1)) {
 			return true;
 		}
 		for (IFeature direct : directRequired) {
-			if (isAncestorFeature1ofFeature2(fm, constraints, f1, direct)) {
-				return true;
+			if(!featureTrace.contains(direct)){
+				featureTrace.add(direct);
+				System.out.println(f1.getName() +" isAncestor of---- "+direct.getName()+" ?");
+				if (isAncestorFeature1ofFeature2(fm, constraints, f1, direct,featureTrace)) {
+					System.out.println("true");
+					return true;
+				}
+				featureTrace.remove(direct);
+			}
+			else{
+				System.err.println(f1.getName() +" isAncestor of "+f2.getName()+" ?");
+				System.err.println("cycle in "+direct.getName());
 			}
 		}
 		return false;
@@ -255,11 +265,13 @@ public class FeatureIDEUtils {
 		analyzer.calculateDeadConstraints = false;
 		analyzer.calculateFOConstraints = false;
 		HashMap<Object, Object> o = analyzer.analyzeFeatureModel(new NullMonitor());
-		for (Entry<Object, Object> entry : o.entrySet()) {
-			if (entry.getKey() instanceof Constraint) {
-				if (entry.getValue() instanceof ConstraintAttribute) {
-					if ((ConstraintAttribute) entry.getValue() == ConstraintAttribute.REDUNDANT) {
-						fm.removeConstraint((Constraint) entry.getKey());
+		if(o !=null){
+			for (Entry<Object, Object> entry : o.entrySet()) {
+				if (entry.getKey() instanceof Constraint) {
+					if (entry.getValue() instanceof ConstraintAttribute) {
+						if ((ConstraintAttribute) entry.getValue() == ConstraintAttribute.REDUNDANT) {
+							fm.removeConstraint((Constraint) entry.getKey());
+						}
 					}
 				}
 			}

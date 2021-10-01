@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension-point id="org.but4reuse.featuremodel.synthesis" name="Feature Model Creators" schema="schema/org.but4reuse.featuremodel.synthesis.fmcreators.exsd"/>
+   <extension-point id="org.but4reuse.featuremodel.synthesis" name="Feature Model Creators" schema="schema/org.but4reuse.featuremodel.synthesis.exsd"/>
    <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution

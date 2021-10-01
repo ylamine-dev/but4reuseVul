@@ -75,6 +75,7 @@ public class AlternativesBeforeHierarchyFMSynthesis implements IFeatureModelSynt
 
 		// Add blocks as features
 		for (Block block : adaptedModel.getOwnedBlocks()) {
+		//	System.out.println(block.getName());
 			Feature f = new Feature(fm, FeatureIDEUtils.validFeatureName(block.getName()));
 			FeatureUtils.setAbstract(f, false);
 			if (common.contains(block)) {
@@ -85,7 +86,7 @@ public class AlternativesBeforeHierarchyFMSynthesis implements IFeatureModelSynt
 			fm.addFeature(f);
 			fmFeatures.add(f);
 		}
-
+    //   System.out.println(" blocks are added in feature model");
 		// Add constraints
 		for (IConstraint constraint : ConstraintsHelper.getCalculatedConstraints(adaptedModel)) {
 			FeatureIDEUtils.addConstraint(fm, FeatureIDEUtils.getConstraintString(constraint));
@@ -181,10 +182,30 @@ public class AlternativesBeforeHierarchyFMSynthesis implements IFeatureModelSynt
 			for (IFeature pc1 : parentCandidates) {
 				for (IFeature pc2 : parentCandidates) {
 					if (pc1 != pc2) {
+						/*
 						if (FeatureIDEUtils.isAncestorFeature1ofFeature2(fm, constraints, pc1, pc2)) {
 							definitiveList.remove(pc1);
 						} else if (FeatureIDEUtils.isAncestorFeature1ofFeature2(fm, constraints, pc2, pc1)) {
 							definitiveList.remove(pc2);
+						}*/
+						
+						List<IFeature> featureTracePc1ofPc2 = new ArrayList<IFeature>();
+						featureTracePc1ofPc2.add(pc2);
+						System.out.println(pc1.getName() +" isAncestor of .... "+pc2.getName()+" ? ?: ");
+						boolean isAncestorPc1ofPc2 = FeatureIDEUtils.isAncestorFeature1ofFeature2(fm, constraints, pc1, pc2, featureTracePc1ofPc2);
+						System.out.println(isAncestorPc1ofPc2);
+						if (isAncestorPc1ofPc2) {
+							definitiveList.remove(pc1);
+						} else{
+							List<IFeature> featureTracePc2ofPc1 = new ArrayList<IFeature>();
+
+							featureTracePc2ofPc1.add(pc1);
+							System.out.println(pc2.getName() +" isAncestor of. "+pc1.getName()+" ? ?");
+							boolean isAncestorPc2ofPc1 = FeatureIDEUtils.isAncestorFeature1ofFeature2(fm, constraints, pc2, pc1,featureTracePc2ofPc1);
+							System.out.println(isAncestorPc2ofPc1);
+							if (isAncestorPc2ofPc1) {
+							definitiveList.remove(pc2);
+							}
 						}
 					}
 				}
