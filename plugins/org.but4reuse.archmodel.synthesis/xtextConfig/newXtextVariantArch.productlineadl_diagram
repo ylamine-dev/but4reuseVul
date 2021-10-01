@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:productlineadl="platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore" xmi:id="_5Kmc4Em1EemWr_W_WTw_eA" type="Productlineadl" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_5Kmc4Um1EemWr_W_WTw_eA"/>
+  <element xmi:type="productlineadl:SoftwareProductLineArchitecture" href="newXtextVariantArch.xml#/"/>
+</notation:Diagram>

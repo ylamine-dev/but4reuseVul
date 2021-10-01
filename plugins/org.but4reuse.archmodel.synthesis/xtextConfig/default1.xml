@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <feature automatic="selected" name="FeatureModel"/>
+    <feature automatic="selected" name="eclipse_equinox_core"/>
+    <feature automatic="selected" manual="selected" name="cvs_team_eclipse"/>
+    <feature automatic="selected" manual="selected" name="emf_edit_eclipse"/>
+    <feature automatic="selected" manual="selected" name="mylyn_eclipse_wikitext"/>
+    <feature automatic="selected" manual="selected" name="mylyn_eclipse_ant"/>
+    <feature manual="selected" name="pde_mylyn_Bridge"/>
+    <feature manual="selected" name="egit_mylyn_Provider"/>
+    <feature automatic="selected" manual="selected" name="Extension_eclipse_wst"/>
+    <feature automatic="selected" name="eclipse_jdt_classpath"/>
+    <feature automatic="selected" manual="selected" name="pde_eclipse_name"/>
+    <feature automatic="selected" manual="selected" name="Helpers_facade_emf"/>
+    <feature automatic="selected" manual="selected" name="emf_eclipse_ecore"/>
+    <feature automatic="selected" manual="selected" name="emf_eclipse_installer"/>
+    <feature manual="selected" name="eclipse_cdo_emf"/>
+    <feature manual="selected" name="Provider_eclipse_egit"/>
+    <feature automatic="selected" name="emf_databinding_Data"/>
+    <feature manual="selected" name="platform_eclipse_doc"/>
+    <feature automatic="selected" name="batik_apache_dom"/>
+    <feature automatic="selected" name="apache_lang_commons"/>
+    <feature automatic="selected" name="cli_apache_commons"/>
+    <feature automatic="selected" manual="selected" name="xtext_eclipse_xtend"/>
+    <feature manual="selected" name="eclipse_xtend_emf"/>
+    <feature manual="selected" name="eclipse_xcore_ecore"/>
+    <feature manual="selected" name="Extension_Point_quick"/>
+    <feature manual="selected" name="activities"/>
+    <feature manual="selected" name="document_Creation"/>
+    <feature manual="selected" name="apache_io_commons"/>
+    <feature automatic="selected" name="google_guava_Core"/>
+    <feature automatic="selected" name="apache_log4j_Plug"/>
+    <feature automatic="selected" name="logback_slf4j_qos"/>
+    <feature automatic="selected" name="eclipse_Maven_m2e"/>
+    <feature automatic="selected" name="google_No_AOP"/>
+    <feature automatic="selected" name="antlr_runtime"/>
+    <feature manual="selected" name="mapping_uri"/>
+    <feature manual="selected" name="jdt_eclipse_doc"/>
+    <feature manual="selected" name="activity_Support"/>
+    <feature automatic="selected" name="apache_pdf_batik"/>
+    <feature automatic="selected" name="eclipse_gmf_EMF"/>
+    <feature manual="selected" name="Descriptors_Exporter_model"/>
+    <feature manual="selected" name="h2_Database_Engine"/>
+</configuration>

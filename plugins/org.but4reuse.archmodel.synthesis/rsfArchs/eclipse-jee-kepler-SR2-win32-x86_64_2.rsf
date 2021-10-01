@@ -1,0 +1,8 @@
+contain org.eclipse.ant.core org.eclipse.core.runtime.applications
+contain org.eclipse.ant.core antTasks
+contain org.eclipse.ant.core providedantTasks
+contain org.eclipse.ant.core1 antTypes
+contain org.eclipse.ant.core5 antProperties
+contain org.eclipse.ant.launching org.eclipse.debug.core.launchConfigurationTypes
+contain org.eclipse.ant.core7 consumedorg.eclipse.core.runtime.applications
+contain org.eclipse.ant.core consumedorg.eclipse.ant.core.extraClasspathEntries

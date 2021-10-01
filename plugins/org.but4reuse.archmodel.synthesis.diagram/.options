@@ -1,0 +1,7 @@
+# Tracing options for the org.but4reuse.archmodel.synthesis.diagram plug-in
+
+# Common issues
+org.but4reuse.archmodel.synthesis.diagram/debug=false
+
+# Visual IDs
+org.but4reuse.archmodel.synthesis.diagram/debug/visualID=false

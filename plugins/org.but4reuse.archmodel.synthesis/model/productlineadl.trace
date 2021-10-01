@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:TraceModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
+  <nodeTraces
+      visualID="2003"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Feature') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'SoftwareProductLineArchitecture') and _containmentMF_.name = 'features')">
+    <nodeLabelTraces
+        visualID="5011"
+        queryText="true"/>
+  </nodeTraces>
+  <childNodeTraces
+      visualID="3014"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Opt') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Feature') and _containmentMF_.name = 'operator')"/>
+  <childNodeTraces
+      visualID="3015"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'And') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Feature') and _containmentMF_.name = 'operator')"/>
+  <childNodeTraces
+      visualID="3016"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Xor') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Feature') and _containmentMF_.name = 'operator')"/>
+  <childNodeTraces
+      visualID="3017"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Or') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Feature') and _containmentMF_.name = 'operator')"/>
+  <linkTraces
+      visualID="4011"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Mandatory')"/>
+  <linkTraces
+      visualID="4012"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Optional')"/>
+  <linkTraces
+      visualID="4013"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Composition')"/>
+  <linkTraces
+      visualID="4014"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Require')"/>
+  <linkTraces
+      visualID="4015"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore' and _eClass_.name = 'Mutex')"/>
+</trace:TraceModel>

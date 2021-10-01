@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.but4reuse.archmodel.synthesis/src" modelPluginID="org.but4reuse.archmodel.synthesis"
+    modelName="Composite" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>composite.ecore</foreignModel>
+  <genPackages prefix="Composite" basePackage="org.but4reuse.archmodel.synthesis.mm"
+      disposableProviderFactory="true" ecorePackage="composite.ecore#/">
+    <genClasses ecoreClass="composite.ecore#//CompositeElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//CompositeElement/plugins"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//CompositeElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="composite.ecore#//PluginElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//PluginElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//PluginElement/pluginSymbName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//PluginElement/pluginVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//PluginElement/bundleInfoLine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//PluginElement/fragmentHost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//PluginElement/absolutePath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//PluginElement/import_packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//PluginElement/export_packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//PluginElement/registeredServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//PluginElement/consumedServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//PluginElement/requiredInterfaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//PluginElement/providedInterfaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//PluginElement/extensionPoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//PluginElement/extensions"/>
+    </genClasses>
+    <genClasses ecoreClass="composite.ecore#//InterfaceElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//InterfaceElement/interfaceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//InterfaceElement/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="composite.ecore#//ServiceElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//ServiceElement/interfaceElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//ServiceElement/objName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//ServiceElement/interfaceName"/>
+    </genClasses>
+    <genClasses ecoreClass="composite.ecore#//ExtensionElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//ExtensionElement/point"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//ExtensionElement/className"/>
+    </genClasses>
+    <genClasses ecoreClass="composite.ecore#//ExtensionPointElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//ExtensionPointElement/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//ExtensionPointElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//ExtensionPointElement/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="composite.ecore#//PackageElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute composite.ecore#//PackageElement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference composite.ecore#//PackageElement/interfaces"/>
+    </genClasses>
+    <genClasses ecoreClass="composite.ecore#//ConsumeServiceConnector"/>
+  </genPackages>
+</genmodel:GenModel>

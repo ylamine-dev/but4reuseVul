@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and mandatory="true" name="FeatureModel">
+				<and mandatory="true" name="eclipse_equinox_core">
+					<feature name="cvs_team_eclipse"/>
+					<and name="emf_edit_eclipse">
+						<and name="mylyn_eclipse_wikitext">
+							<and name="mylyn_eclipse_ant">
+								<feature name="pde_mylyn_Bridge"/>
+							</and>
+							<feature name="egit_mylyn_Provider"/>
+						</and>
+						<feature name="Extension_eclipse_wst"/>
+					</and>
+					<and name="eclipse_jdt_classpath">
+						<feature name="pde_eclipse_name"/>
+						<and name="Helpers_facade_emf">
+							<and name="emf_eclipse_ecore">
+								<and name="emf_eclipse_installer">
+									<feature name="eclipse_cdo_emf"/>
+								</and>
+							</and>
+							<and name="eclipse_E_wst">
+								<feature name="scout_eclipse_sdk"/>
+							</and>
+						</and>
+					</and>
+					<feature name="Provider_eclipse_egit"/>
+					<feature name="emf_databinding_Data"/>
+					<and name="rse_Point_ext">
+						<and name="rse_eclipse_dstore">
+							<and name="terminal_lpg_eclipse">
+								<feature name="ptp_eclipse_core"/>
+							</and>
+						</and>
+					</and>
+					<feature name="platform_eclipse_doc"/>
+					<feature name="batik_apache_dom"/>
+					<and name="C_name_cdt">
+						<feature name="cdt_eclipse_build"/>
+						<and name="Linuxtools_eclipse_Plug">
+							<feature name="eclipse_linuxtools_Analysis"/>
+						</and>
+					</and>
+					<and name="persistence_eclipse_EclipseLink">
+						<and name="apache_oracle_poi">
+							<feature name="birt_eclipse_report"/>
+							<feature name="jubula_eclipse_client"/>
+						</and>
+					</and>
+					<feature name="standard_eclipse_Product"/>
+				</and>
+				<and name="apache_lang_commons">
+					<and name="cli_apache_commons">
+						<and name="xtext_eclipse_xtend">
+							<feature name="eclipse_xtend_emf"/>
+							<feature name="eclipse_xcore_ecore"/>
+						</and>
+					</and>
+				</and>
+				<feature name="Extension_Point_quick"/>
+				<feature name="activities"/>
+				<feature name="document_Creation"/>
+				<feature name="apache_io_commons"/>
+				<feature name="semantic_Extension_Highlighting"/>
+				<feature name="Types_content"/>
+				<and name="google_guava_Core">
+					<and name="eclipse_mylyn_Factories">
+						<feature name="swing_eclipse_wb"/>
+						<feature name="eclipse_rap_gerrit"/>
+					</and>
+				</and>
+				<feature name="apache_log4j_Plug"/>
+				<and name="logback_slf4j_qos">
+					<and name="eclipse_Maven_m2e">
+						<feature name="recommenders_eclipse_Code"/>
+						<feature name="m2e_logback_configuration"/>
+					</and>
+				</and>
+				<feature name="google_No_AOP"/>
+				<feature name="antlr_runtime"/>
+				<feature name="mapping_uri"/>
+				<feature name="jdt_eclipse_doc"/>
+				<feature name="activity_Support"/>
+				<feature name="javax_mail_Plug"/>
+				<and name="apache_pdf_batik">
+					<feature name="eclipse_gmf_EMF"/>
+				</and>
+				<feature name="Descriptors_Exporter_model"/>
+				<and name="jetty_webapp_xml">
+					<and name="eclipse_Tools_datatools">
+						<feature name="eclipse_ws_jst"/>
+					</and>
+				</and>
+				<feature name="Variables_value"/>
+				<feature name="h2_Database_Engine"/>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>mylyn_eclipse_wikitext</var>
+					<var>apache_lang_commons</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>mylyn_eclipse_wikitext</var>
+					<var>cvs_team_eclipse</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>mylyn_eclipse_ant</var>
+					<var>eclipse_jdt_classpath</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>emf_eclipse_ecore</var>
+					<var>emf_edit_eclipse</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>emf_eclipse_ecore</var>
+					<var>emf_databinding_Data</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_Maven_m2e</var>
+					<var>eclipse_jdt_classpath</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_Maven_m2e</var>
+					<var>Extension_eclipse_wst</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>recommenders_eclipse_Code</var>
+					<var>apache_io_commons</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>recommenders_eclipse_Code</var>
+					<var>google_guava_Core</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>recommenders_eclipse_Code</var>
+					<var>google_No_AOP</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_E_wst</var>
+					<var>Extension_eclipse_wst</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>pde_mylyn_Bridge</var>
+					<var>pde_eclipse_name</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_gmf_EMF</var>
+					<var>emf_eclipse_ecore</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_gmf_EMF</var>
+					<var>batik_apache_dom</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>cdt_eclipse_build</var>
+					<var>rse_Point_ext</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>xtext_eclipse_xtend</var>
+					<var>pde_eclipse_name</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>xtext_eclipse_xtend</var>
+					<var>google_guava_Core</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>xtext_eclipse_xtend</var>
+					<var>apache_log4j_Plug</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>xtext_eclipse_xtend</var>
+					<var>emf_eclipse_ecore</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>xtext_eclipse_xtend</var>
+					<var>google_No_AOP</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>xtext_eclipse_xtend</var>
+					<var>antlr_runtime</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Linuxtools_eclipse_Plug</var>
+					<var>mylyn_eclipse_wikitext</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_mylyn_Factories</var>
+					<var>eclipse_jdt_classpath</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_mylyn_Factories</var>
+					<var>mylyn_eclipse_wikitext</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_mylyn_Factories</var>
+					<var>Provider_eclipse_egit</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_mylyn_Factories</var>
+					<var>emf_databinding_Data</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_Tools_datatools</var>
+					<var>mylyn_eclipse_wikitext</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_Tools_datatools</var>
+					<var>pde_eclipse_name</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_Tools_datatools</var>
+					<var>emf_eclipse_ecore</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_Tools_datatools</var>
+					<var>persistence_eclipse_EclipseLink</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_Tools_datatools</var>
+					<var>eclipse_E_wst</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_Tools_datatools</var>
+					<var>terminal_lpg_eclipse</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_xtend_emf</var>
+					<var>eclipse_gmf_EMF</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_xcore_ecore</var>
+					<var>eclipse_Maven_m2e</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_ws_jst</var>
+					<var>eclipse_Maven_m2e</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_cdo_emf</var>
+					<var>pde_eclipse_name</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_cdo_emf</var>
+					<var>google_guava_Core</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_cdo_emf</var>
+					<var>eclipse_gmf_EMF</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>ptp_eclipse_core</var>
+					<var>Provider_eclipse_egit</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>ptp_eclipse_core</var>
+					<var>C_name_cdt</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_rap_gerrit</var>
+					<var>pde_eclipse_name</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>eclipse_rap_gerrit</var>
+					<var>jetty_webapp_xml</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>birt_eclipse_report</var>
+					<var>batik_apache_dom</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>birt_eclipse_report</var>
+					<var>apache_pdf_batik</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>birt_eclipse_report</var>
+					<var>eclipse_Tools_datatools</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>scout_eclipse_sdk</var>
+					<var>pde_eclipse_name</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>scout_eclipse_sdk</var>
+					<var>batik_apache_dom</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>jubula_eclipse_client</var>
+					<var>logback_slf4j_qos</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>jubula_eclipse_client</var>
+					<var>cli_apache_commons</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>jubula_eclipse_client</var>
+					<var>h2_Database_Engine</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="false"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>

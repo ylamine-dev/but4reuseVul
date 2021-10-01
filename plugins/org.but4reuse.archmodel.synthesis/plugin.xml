@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+<extension-point id="sapl_re" name="Software Architecture Product Line Creators" schema="schema/org.but4reuse.archmodel.synthesis.saplcreators.exsd"/>
+<extension-point id="sav_recovering" name="Software Architecture Variant Recovering" schema="schema/orgbut4reusearchmodelrecover.exsd"/>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated composite -->
+      <package
+            uri="http://org.but4reuse.archmodel.synthesis"
+            class="org.but4reuse.archmodel.synthesis.mm.composite.CompositePackage"
+            genModel="model/old/composite.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated productLineadl -->
+      <package
+            uri="http://org.but4reuse.archmodel.synthesis"
+            class="org.but4reuse.archmodel.synthesis.adlmm.productLineadl.ProductLineadlPackage"
+            genModel="model/productLineadl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated productlineadl -->
+      <package
+            uri="platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore"
+            class="org.but4reuse.archmodel.synthesis.adlmm.productlineadl.ProductlineadlPackage"
+            genModel="model/productlineadl.genmodel"/>
+   </extension>
+  
+   
+    <extension
+          point="org.eclipse.ui.viewActions">
+       <viewContribution
+             id="org.but4reuse.archmodel.synthesis.viewContribution1"
+             targetID="org.eclipse.contribution.visualiser.views.Menu">
+          <action
+                class="org.but4reuse.archmodel.synthesis.ui.CreateNewSoftwareArchitectureVariantAction"
+                icon="icons/createSAV.png"
+                id="org.but4reuse.archmodel.synthesis.action1"
+                label="Derive New Software Architecture Variant"
+                style="push"
+                toolbarPath="additions">
+          </action>
+       </viewContribution>
+    </extension>
+    <extension
+          point="org.eclipse.ui.viewActions">
+       <viewContribution
+             id="org.but4reuse.exportation.featureide.viewContributionAr"
+             targetID="org.eclipse.contribution.visualiser.views.Menu">
+          <action
+                class="org.but4reuse.archmodel.synthesis.ui.CreateSoftwareArchitectureProductLineAction"
+                icon="icons/createSAPL.png"
+                id="org.but4reuse.extension.featureide.createproductlinearch1"
+                label="Create SAPL Architecture"
+                style="push"
+                toolbarPath="additions">
+          </action>
+       </viewContribution>
+    </extension>
+    <extension
+          point="org.eclipse.ui.preferencePages">
+       <page
+             category="org.but4reuse.page"
+             class="org.but4reuse.archmodel.synthesis.ui.preferences.ArchitectureSynthesisPreferencePage"
+             id="org.but4reuse.archmodel.synthesis.ui.page1"
+             name="SAPL Model Synthesis">
+       </page>
+    </extension>
+    
+     <extension
+           point="org.eclipse.ui.preferencePages">
+        <page
+              category="org.but4reuse.page"
+              class="org.but4reuse.archmodel.synthesis.ui.preferences.SAVariantRecoveryPreferencePage"
+              id="org.but4reuse.archmodel.synthesis.page2"
+              name="Software Architecture Variant Recovering">
+        </page>
+     </extension>
+     <extension
+           point="org.eclipse.ui.popupMenus">
+        <objectContribution
+              adaptable="false"
+              id="org.but4reuse.archmodel.synthesis.objectContribution2"
+              objectClass="org.but4reuse.artefactmodel.ArtefactModel">
+           <action
+                 class="org.but4reuse.archmodel.synthesis.ui.RecoveringSoftwareArchitectureVariantsAction"
+                 icon="icons/createSAV.png"
+                 id="org.but4reuse.archmodel.synthesis.action2"
+                 label="Recover Software Architectures From Variants"
+                 menubarPath="additions">
+           </action>
+        </objectContribution>
+        <viewerContribution
+              id="org.but4reuse.archmodel.synthesis.viewerContribution2"
+              targetID="org.eclipse.ui.views.ResourceNavigator">
+           <action
+                 class="org.but4reuse.archmodel.synthesis.ui.RecoveringSoftwareArchitectureVariantsAction"
+                 icon="icons/createSAV.png"
+                 id="org.but4reuse.archmodel.synthesis.action3"
+                 label="Recover Software Architectures From Variants"
+                 menubarPath="but4reuse/additions">
+           </action>
+        </viewerContribution>
+     </extension>
+
+</plugin>

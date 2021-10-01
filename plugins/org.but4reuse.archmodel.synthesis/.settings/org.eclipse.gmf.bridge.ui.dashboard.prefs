@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.genmodel
+gmf_dashboard/domainModel=platform\:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore
+gmf_dashboard/generationModel=platform\:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl1.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl1.gmfmap
+gmf_dashboard/option_rcp=*
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl1.gmftool

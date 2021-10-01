@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="productlineadl" nsURI="platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore"
+    nsPrefix="productlineadl">
+  <eAnnotations source="TextualConstraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductLineArchitecture">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphTypeTree" lowerBound="1"
+        eType="#//Boolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="#//Feature" containment="true" eOpposite="#//Feature/owningFeatureDiagram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" lowerBound="1" eType="#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="#//Constraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composites" upperBound="-1"
+        eType="#//CompositeElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//ComponentElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingEdge" upperBound="-1"
+        eType="#//Edge" containment="true" eOpposite="#//Edge/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingEdge" upperBound="-1"
+        eType="#//Edge" eOpposite="#//Edge/child"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningFeatureDiagram" lowerBound="1"
+        eType="#//ProductLineArchitecture" eOpposite="#//ProductLineArchitecture/features"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operator" eType="#//Operator"
+        containment="true" eOpposite="#//Operator/owningFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" upperBound="-1"
+        eType="#//CompositeElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selected" lowerBound="1"
+        eType="#//Boolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mandatory" lowerBound="1"
+        eType="#//Boolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="#//Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Edge">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//Feature" eOpposite="#//Feature/outgoingEdge"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1" eType="#//Feature"
+        eOpposite="#//Feature/incomingEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningFeature" eType="#//Feature"
+        eOpposite="#//Feature/operator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Opt" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Xor" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Boolean" instanceClassName="java.lang.Boolean"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="String" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Require" eSuperTypes="#//Constraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mutex" eSuperTypes="#//Constraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//ComponentElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
+        eType="#//Connector" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PluginElement" eSuperTypes="#//ComponentElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pluginSymbName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="import_packages" upperBound="-1"
+        eType="#//ImportedPackageElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="export_packages" upperBound="-1"
+        eType="#//ExportedPackageElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="registeredServices" upperBound="-1"
+        eType="#//RegisteredServiceElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consumedServices" upperBound="-1"
+        eType="#//ConsumedServiceElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterfaces" upperBound="-1"
+        eType="#//RequiredInterfaceElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterfaces" upperBound="-1"
+        eType="#//ProvidedInterfaceElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extensionPoints" upperBound="-1"
+        eType="#//ExtensionPointElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extensions" upperBound="-1"
+        eType="#//ExtensionElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pluginVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidedInterfaceElement" eSuperTypes="#//ProvidedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operations" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConsumedServiceElement" eSuperTypes="#//RequiredElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtensionElement" eSuperTypes="#//RequiredElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="point" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtensionPointElement" eSuperTypes="#//ProvidedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportedPackageElement" eSuperTypes="#//RequiredElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredElements" upperBound="-1"
+        eType="#//RequiredElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedElements" upperBound="-1"
+        eType="#//ProvidedElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//RequiredElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//ProvidedElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidedElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RegisteredServiceElement" eSuperTypes="#//ProvidedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredInterfaceElement" eSuperTypes="#//RequiredElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operations" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExportedPackageElement" eSuperTypes="#//ProvidedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

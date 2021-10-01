@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.but4reuse.adapters">
+      <adapter
+            class="org.but4reuse.adapters.softarchitectures.OSGiSoftArchiAdapter"
+            icon="icons/icon_osgisoftarch.png"
+            id="softarchs"
+            name="Software Architectures">
+         <elements>
+               <element
+                  element="org.but4reuse.adapters.softarchitectures.PluginElement"></element>
+            <element
+                  element="org.but4reuse.adapters.softarchitectures.FileElement">
+            </element>
+             <element
+                  element="org.but4reuse.adapters.softarchitectures.PackageElement">
+            </element>
+             <element
+                  element="org.but4reuse.adapters.softarchitectures.ServiceElement">
+            </element>
+              
+             <element
+                  element="org.but4reuse.adapters.softarchitectures.InterfaceElement">
+            </element>
+             <element
+                  element="org.but4reuse.adapters.softarchitectures.ExtensionElement">
+            </element>
+             <element
+                  element="org.but4reuse.adapters.softarchitectures.ExtensionPointElement">
+            </element>
+         </elements>
+      </adapter>
+   </extension>
+    <extension
+         point="org.but4reuse.visualisation">
+      <visualisation
+            class="org.but4reuse.adapters.softarchitectures.sapl.synthesis.visualisation.OSGiBlockArchsSavingVisualisation"
+            description="Feature Architectures Saving Visualisation"
+            name="Feature Architectures Saving Visualisation">
+      </visualisation>
+   </extension>
+   <extension
+         point="org.but4reuse.archmodel.synthesis.sapl_re">
+      <plasynthesis
+            class="org.but4reuse.adapters.softarchitectures.sapl.synthesis.FlatOsgiSAPLArchitectureCreator"
+            description="Create Flat SAPL from Eclipse Variants"
+            name="Create Flat SAPL from Eclipse Variants">
+      </plasynthesis>
+   </extension>
+   <extension
+         point="org.but4reuse.archmodel.synthesis.sapl_re">
+      <plasynthesis
+            class="org.but4reuse.adapters.softarchitectures.sapl.synthesis.AHOsgiSAPLArchitectureCreator"
+            description="Create Alternative before Hierarchy SAPL  from Eclipse Variants"
+            name="Create Alternative before Hierarchy SAPL  from Eclipse Variants">
+      </plasynthesis>
+   </extension>
+   <extension
+         point="org.but4reuse.archmodel.synthesis.sav_recovering">
+      <savrecover
+            class="org.but4reuse.adapters.softarchitectures.sa.recover.impl.SoftwareArchitectureRecovering"
+            description="Flat Org SA Variant Recovering"
+            name="Flat Org SA Variant Recovering">
+      </savrecover>
+   </extension>
+
+</plugin>

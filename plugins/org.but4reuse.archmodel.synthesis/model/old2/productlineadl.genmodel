@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.but4reuse.archmodel.synthesis/src" modelPluginID="org.but4reuse.archmodel.synthesis"
+    modelName="Productlineadl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>productlineadl.ecore</foreignModel>
+  <genPackages prefix="Productlineadl" basePackage="org.but4reuse.archmodel.synthesis.adlmm"
+      disposableProviderFactory="true" ecorePackage="productlineadl.ecore#/">
+    <genDataTypes ecoreDataType="productlineadl.ecore#//Boolean"/>
+    <genDataTypes ecoreDataType="productlineadl.ecore#//String"/>
+    <genClasses ecoreClass="productlineadl.ecore#//ProductLineArchitecture">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ProductLineArchitecture/graphTypeTree"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//ProductLineArchitecture/features"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference productlineadl.ecore#//ProductLineArchitecture/root"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//ProductLineArchitecture/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//ProductLineArchitecture/composites"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//ProductLineArchitecture/components"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//Feature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//Feature/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//Feature/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//Feature/outgoingEdge"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference productlineadl.ecore#//Feature/incomingEdge"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference productlineadl.ecore#//Feature/owningFeatureDiagram"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//Feature/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//Feature/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//Feature/selected"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//Feature/mandatory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//Feature/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//Feature/abstract"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//Edge">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference productlineadl.ecore#//Edge/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference productlineadl.ecore#//Edge/child"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="productlineadl.ecore#//Constraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference productlineadl.ecore#//Constraint/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference productlineadl.ecore#//Constraint/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//Constraint/text"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="productlineadl.ecore#//Operator">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference productlineadl.ecore#//Operator/owningFeature"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//Opt"/>
+    <genClasses ecoreClass="productlineadl.ecore#//And"/>
+    <genClasses ecoreClass="productlineadl.ecore#//Or"/>
+    <genClasses ecoreClass="productlineadl.ecore#//Xor"/>
+    <genClasses ecoreClass="productlineadl.ecore#//Require"/>
+    <genClasses ecoreClass="productlineadl.ecore#//Mutex"/>
+    <genClasses ecoreClass="productlineadl.ecore#//CompositeElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//CompositeElement/components"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//CompositeElement/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//CompositeElement/connectors"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//PluginElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//PluginElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//PluginElement/pluginSymbName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//PluginElement/import_packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//PluginElement/export_packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//PluginElement/registeredServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//PluginElement/consumedServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//PluginElement/requiredInterfaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//PluginElement/providedInterfaces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//PluginElement/extensionPoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//PluginElement/extensions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//PluginElement/pluginVersion"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//ProvidedInterfaceElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ProvidedInterfaceElement/interfaceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ProvidedInterfaceElement/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//ConsumedServiceElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ConsumedServiceElement/objName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ConsumedServiceElement/interfaceName"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//ExtensionElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ExtensionElement/point"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ExtensionElement/className"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//ExtensionPointElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ExtensionPointElement/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ExtensionPointElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ExtensionPointElement/schema"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//ImportedPackageElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ImportedPackageElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="productlineadl.ecore#//ComponentElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//ComponentElement/requiredElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference productlineadl.ecore#//ComponentElement/providedElements"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//Connector">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference productlineadl.ecore#//Connector/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference productlineadl.ecore#//Connector/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="productlineadl.ecore#//ProvidedElement"/>
+    <genClasses image="false" ecoreClass="productlineadl.ecore#//RequiredElement"/>
+    <genClasses ecoreClass="productlineadl.ecore#//RegisteredServiceElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//RegisteredServiceElement/objName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//RegisteredServiceElement/interfaceName"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//RequiredInterfaceElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//RequiredInterfaceElement/interfaceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//RequiredInterfaceElement/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="productlineadl.ecore#//ExportedPackageElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute productlineadl.ecore#//ExportedPackageElement/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

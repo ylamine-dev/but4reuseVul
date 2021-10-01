@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated productlineadl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.but4reuse.archmodel.synthesis.adlmm.productlineadl.presentation.ProductlineadlModelWizardID"
+            name="%_UI_ProductlineadlModelWizard_label"
+            class="org.but4reuse.archmodel.synthesis.adlmm.productlineadl.presentation.ProductlineadlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ProductlineadlModelFile.gif">
+         <description>%_UI_ProductlineadlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated productlineadl -->
+      <editor
+            id="org.but4reuse.archmodel.synthesis.adlmm.productlineadl.presentation.ProductlineadlEditorID"
+            name="%_UI_ProductlineadlEditor_label"
+            icon="icons/full/obj16/ProductlineadlModelFile.gif"
+            extensions="productlineadl"
+            class="org.but4reuse.archmodel.synthesis.adlmm.productlineadl.presentation.ProductlineadlEditor"
+            contributorClass="org.but4reuse.archmodel.synthesis.adlmm.productlineadl.presentation.ProductlineadlActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,8 @@
+contain A 45dfkjdlskjfl
+contain org.eclipse.ant.core consumedorg.eclipse.ant.core.extraClasspathEntries
+contain org.eclipse.ant.core1 consumedorg.eclipse.ant.core.antProperties
+contain org.eclipse.ant.core providedorg.eclipse.core.contenttype.contentTypes
+contain org.eclipse.ant.core providedextraClasspathEntries
+contain org.eclipse.ant.core providedantTasks
+contain org.eclipse.ant.core5 importedantTypes
+contain org.eclipse.ant.core importedantProperties

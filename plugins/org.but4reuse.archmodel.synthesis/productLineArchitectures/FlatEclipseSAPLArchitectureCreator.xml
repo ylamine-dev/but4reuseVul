@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<productlineadl:SoftwareProductLineArchitecture xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:productlineadl="platform:/resource/org.but4reuse.archmodel.synthesis/model/productlineadl.ecore" root="//@features.0">
+  <features id="SoftwareProductLineArchitecture" name="SoftwareProductLineArchitecture" abstract="false">
+    <outgoingEdge xsi:type="productlineadl:Optional" child="//@features.1"/>
+    <outgoingEdge xsi:type="productlineadl:Optional" child="//@features.2"/>
+    <outgoingEdge xsi:type="productlineadl:Optional" child="//@features.3"/>
+    <outgoingEdge xsi:type="productlineadl:Optional" child="//@features.4"/>
+    <outgoingEdge xsi:type="productlineadl:Optional" child="//@features.5"/>
+    <outgoingEdge xsi:type="productlineadl:Optional" child="//@features.6"/>
+  </features>
+  <features id="eclipse_point" name="eclipse_point" incomingEdge="//@features.0/@outgoingEdge.0" abstract="false">
+    <model name="eclipse point"/>
+  </features>
+  <features id="eclipse_recommenders" name="eclipse_recommenders" incomingEdge="//@features.0/@outgoingEdge.1" abstract="false">
+    <model name="eclipse recommenders"/>
+  </features>
+  <features id="pde_eclipse" name="pde_eclipse" incomingEdge="//@features.0/@outgoingEdge.2" abstract="false">
+    <model name="pde eclipse"/>
+  </features>
+  <features id="swing_eclipse" name="swing_eclipse" incomingEdge="//@features.0/@outgoingEdge.3" abstract="false">
+    <model name="swing eclipse"/>
+  </features>
+  <features id="eclipse_mylyn" name="eclipse_mylyn" incomingEdge="//@features.0/@outgoingEdge.4" abstract="false">
+    <model name="eclipse mylyn"/>
+  </features>
+  <features id="eclipse_birt" name="eclipse_birt" incomingEdge="//@features.0/@outgoingEdge.5" abstract="false">
+    <model name="eclipse birt"/>
+  </features>
+  <constraints xsi:type="productlineadl:Require" target="//@features.1" source="//@features.2" text="eclipse_recommenders implies eclipse_point"/>
+  <constraints xsi:type="productlineadl:Require" target="//@features.1" source="//@features.3" text="pde_eclipse implies eclipse_point"/>
+  <constraints xsi:type="productlineadl:Require" target="//@features.1" source="//@features.4" text="swing_eclipse implies eclipse_point"/>
+  <constraints xsi:type="productlineadl:Require" target="//@features.2" source="//@features.4" text="swing_eclipse implies eclipse_recommenders"/>
+  <constraints xsi:type="productlineadl:Require" target="//@features.1" source="//@features.5" text="eclipse_mylyn implies eclipse_point"/>
+  <constraints xsi:type="productlineadl:Require" target="//@features.2" source="//@features.5" text="eclipse_mylyn implies eclipse_recommenders"/>
+  <constraints xsi:type="productlineadl:Require" target="//@features.3" source="//@features.5" text="eclipse_mylyn implies pde_eclipse"/>
+  <constraints xsi:type="productlineadl:Require" target="//@features.1" source="//@features.6" text="eclipse_birt implies eclipse_point"/>
+  <constraints xsi:type="productlineadl:Require" target="//@features.3" source="//@features.6" text="eclipse_birt implies pde_eclipse"/>
+</productlineadl:SoftwareProductLineArchitecture>
